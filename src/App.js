@@ -1,9 +1,14 @@
 import './App.css';
+import Header from './components/Header';
+import AddTask from './components/AddTask';
+import ShowTask from './components/ShowTask';
 
 function App() {
   return (
-    <div className='App'>
-      <h1>TaskMate</h1>
+    <div>
+      <Header />
+      <AddTask />
+      <ShowTask />
     </div>
   );
 }
