@@ -1,4 +1,4 @@
-const AddTask = ({ taskList, setTaskList }) => {
+const AddTask = ({ taskList, setTaskList, task, setTask }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 

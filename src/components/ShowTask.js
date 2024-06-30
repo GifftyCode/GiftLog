@@ -1,4 +1,8 @@
-const ShowTask = ({ taskList, setTaskList }) => {
+const ShowTask = ({ taskList, setTaskList, task, setTask }) => {
+  const handleDelete = (id) => {
+    const taskToDelete = taskList.filter((task) => task.id !== id);
+    setTaskList(taskToDelete);
+  };
   return (
     <section className='showTask'>
       <div className='head'>
@@ -18,7 +22,10 @@ const ShowTask = ({ taskList, setTaskList }) => {
               <span className='time'>{task.time}</span>
             </p>
             <i className='bi bi-pencil-square'></i>
-            <i className='bi bi-trash'></i>
+            <i
+              onClick={() => handleDelete(task.id)}
+              className='bi bi-trash'
+            ></i>
           </li>
         ))}
       </ul>
