@@ -1,7 +1,12 @@
 const ShowTask = ({ taskList, setTaskList, task, setTask }) => {
   const handleDelete = (id) => {
-    const taskToDelete = taskList.filter((task) => task.id !== id);
+    const taskToDelete = taskList.filter((todo) => todo.id !== id);
     setTaskList(taskToDelete);
+  };
+
+  const handleEdit = (id) => {
+    const selectedTask = taskList.find((todo) => todo.id === id);
+    setTask(selectedTask);
   };
   return (
     <section className='showTask'>
@@ -15,15 +20,18 @@ const ShowTask = ({ taskList, setTaskList, task, setTask }) => {
         </button>
       </div>
       <ul>
-        {taskList.map((task) => (
-          <li key={task.id}>
+        {taskList.map((todo) => (
+          <li key={todo.id}>
             <p>
-              <span className='name'>{task.name}</span>
-              <span className='time'>{task.time}</span>
+              <span className='name'>{todo.name}</span>
+              <span className='time'>{todo.time}</span>
             </p>
-            <i className='bi bi-pencil-square'></i>
             <i
-              onClick={() => handleDelete(task.id)}
+              onClick={() => handleEdit(todo.id)}
+              className='bi bi-pencil-square'
+            ></i>
+            <i
+              onClick={() => handleDelete(todo.id)}
               className='bi bi-trash'
             ></i>
           </li>
