@@ -13,7 +13,7 @@ A simple task manager application built with React, allowing users to add, edit,
 
 ## Screenshots
 
-![Screenshot](src/assets/thumbnail.png)
+![Screenshot](src\assets\thumbnail.png)
 
 ## Getting Started
 
