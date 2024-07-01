@@ -14,6 +14,7 @@ const AddTask = ({ taskList, setTaskList, task, setTask }) => {
           : todo
       );
       setTaskList(updatedTask);
+      setTask({});
     } else {
       const date = new Date();
       const newTask = {
@@ -22,14 +23,14 @@ const AddTask = ({ taskList, setTaskList, task, setTask }) => {
         time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}`,
       };
       setTaskList([...taskList, newTask]);
-      e.target.task.value = '';
+      setTask({});
     }
   };
   return (
     <section className='addTask'>
       <form onSubmit={handleSubmit}>
         <input
-          value={task.name}
+          value={task.name || ''}
           type='text'
           name='task'
           autoComplete='off'
@@ -37,7 +38,7 @@ const AddTask = ({ taskList, setTaskList, task, setTask }) => {
           maxLength='27'
           onChange={(e) => setTask({ ...task, name: e.target.value })}
         />
-        <button type='submit'>Add</button>
+        <button type='submit'>{task.id ? 'Update' : 'Add'}</button>
       </form>
     </section>
   );
